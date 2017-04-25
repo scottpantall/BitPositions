@@ -35,15 +35,8 @@ public class Main {
         int p1 = Integer.parseInt(tokens[1]);
         int p2 = Integer.parseInt(tokens[2]);
         
-        char p1Value = binaryValue.charAt(binaryValue.length() - p1);
-        char p2Value = binaryValue.charAt(binaryValue.length() - p2);
-        
-        System.out.println(tokens[0] + " converted to binary is " + binaryValue);
-        
-        System.out.println("Position " + p1 + ": " + p1Value);
-        System.out.println("Position " + p2 + ": " + p2Value);
-        
-        System.out.println(binaryValue.charAt(binaryValue.length() - p1) == binaryValue.charAt(binaryValue.length() - p1));
+        //System.out.println(p1Value == p2Value);
+        System.out.println(binaryValue.charAt(binaryValue.length() - p1) == binaryValue.charAt(binaryValue.length() - p2));
         
     }
 }
