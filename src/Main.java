@@ -8,12 +8,18 @@
  * @author Scott
  */
 import java.io.*;
+import java.nio.file.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main (String[] args) throws IOException 
     {
-        File file = new File(args[0]);
-        BufferedReader buffer = new BufferedReader(new FileReader(file));
+        Files.lines(Paths.get(args [0])).map(String::trim).forEach(Main::bitPositions); 
+        /*
+        //File file = new File(args[0]);
+        Path file = Paths.get(args[0]);
+        //BufferedReader buffer = new BufferedReader(new FileReader(args[0]));
+        BufferedReader buffer = Files.newBufferedReader(file);
         String line;
         
         
@@ -22,18 +28,19 @@ public class Main {
             line = line.trim();
             bitPositions(line);
         }
+                */
     }
     
     public static void bitPositions(String line)
     {
-        // Split line into an array of strings
-        String[] tokens = line.split(",");
+        // Split line into tokens using a Scanner
+        Scanner s = new Scanner(line).useDelimiter(",");
         
         // Turn the first string into an integer
         //  then turn that into a string of its binary value.
-        String binaryValue = Integer.toBinaryString(Integer.parseInt(tokens[0]));
-        int p1 = Integer.parseInt(tokens[1]);
-        int p2 = Integer.parseInt(tokens[2]);
+        String binaryValue = Integer.toBinaryString(s.nextInt());
+        int p1 = s.nextInt();
+        int p2 = s.nextInt();;
         
         //System.out.println(p1Value == p2Value);
         System.out.println(binaryValue.charAt(binaryValue.length() - p1) == binaryValue.charAt(binaryValue.length() - p2));
